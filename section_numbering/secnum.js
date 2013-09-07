@@ -58,9 +58,9 @@ function number_sections(threshold) {
   
 }
 
+number_sections();
 
-
-$([IPython.events]).on('create.Cell', number_sections);
+// $([IPython.events]).on('create.Cell', number_sections);
 
 $([IPython.events]).on('selected_cell_type_changed.Notebook', number_sections);
 
