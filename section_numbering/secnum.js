@@ -27,11 +27,15 @@ function number_sections(threshold) {
         
         console.log("h1_html: " + h1_html);
 
-        var pattern = /^[0-9]+\./;   // section number at start of string
-        var result = h1_html.match(pattern);
-        
-        h1_html = h1_html.replace(result, "");
-        h1_element.html(h1_number + ". " + h1_html);
+        var patt = /^[0-9]+\.\s(.*)/;   // section number at start of string
+        var title = h1_html.match(patt);  // just the title
+
+        if (title != null) {  
+          h1_element.html(h1_number + ". " + title[1]);
+        }
+        else {
+          h1_element.html(h1_number + ". " + h1_html);
+        }
         
         h2_number = 0;
         
@@ -43,11 +47,17 @@ function number_sections(threshold) {
         
         var h2_element = cell.element.find('h2');
         var h2_html = h2_element.html();
+
+        console.log("h2_html: " + h2_html);
+
         
-        var pattern = /^[0-9]+\.[0-9]+\./;
-        var result = h2_html.match(pattern);
-       
-        h2_html = h2_html.replace(result, "");
+        var patt = /^[0-9]+\.[0-9]+\.\s/;
+        var result = h2_html.match(patt);
+
+        if (result != null) {
+          h2_html = h2_html.replace(result, "");
+        }
+
         h2_element.html(h1_number + "." + h2_number + ". " + h2_html);
         
     }
@@ -56,9 +66,9 @@ function number_sections(threshold) {
   
 }
 
-// number_sections();
+number_sections();
 
-// $([IPython.events]).on('create.Cell', number_sections);
+// $([IPython.evnts]).on('create.Cell', number_sections);
 
 $([IPython.events]).on('selected_cell_type_changed.Notebook', number_sections);
 
