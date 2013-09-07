@@ -6,18 +6,17 @@ function number_sections(threshold) {
   var h2_number = 0;
 
   if (threshold === undefined) {
-    threshold = 4;
+    threshold = 2;  // does nothing so far
   }
 
   var cells = IPython.notebook.get_cells();
   
   for (var i=0; i < cells.length; i++) {
+
     var cell = cells[i];
-    
     if (cell.cell_type !== 'heading') continue;
     
     var level = cell.level;
-        
     if (level > threshold) continue;
     
     if (level === 1) {
@@ -28,7 +27,7 @@ function number_sections(threshold) {
         
         console.log("h1_html: " + h1_html);
 
-        pattern = /^[0-9]+\./;  
+        var pattern = /^[0-9]+\./;  
         // section number at start of string
         
         var result = pattern.match(h1_html);
@@ -47,7 +46,7 @@ function number_sections(threshold) {
         var h2_element = cell.element.find('h2');
         var h2_html = h2_element.html();
         
-        pattern = /^[0-9]+\.[0-9]+\./;
+        var pattern = /^[0-9]+\.[0-9]+\./;
         var result = pattern.match(h2_html);
        
         h2_html = h2_html.replace(result, "");
