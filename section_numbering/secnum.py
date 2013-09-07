@@ -16,8 +16,7 @@ import urllib2
 from IPython.display import display_html, display_javascript
 
 here = os.path.abspath(os.path.dirname(__file__))
-nbtoc_js = ""
-nbtoc_html = ""
+secnum_js = ""
 
 def download(fname, redownload=False):
     """download a file
@@ -27,7 +26,7 @@ def download(fname, redownload=False):
     dest = os.path.join(here, fname)
     if os.path.exists(dest) and not redownload:
         return
-    url = 'https://raw.github.com/minrk/ipython_extensions/master/' + fname
+    url = 'https://raw.github.com/dpsanders/ipython_extensions/master/section_numbering' + fname
     print("Downloading %s to %s" % (url, dest))
     
     filein  = urllib2.urlopen(url)
@@ -45,22 +44,23 @@ def load_file(fname, redownload=False):
     with io.open(os.path.join(here, fname)) as f:
         globals()[fname.replace('.', '_')] = f.read()
 
-load_file('nbtoc.js')
-load_file('nbtoc.html')
 
-def nbtoc(line):
+load_file('secnum.js')
+
+
+
+def secnum(line):
     """add a table of contents to an IPython Notebook"""
-    display_html(nbtoc_html, raw=True)
-    display_javascript(nbtoc_js, raw=True)
+    display_javascript(secnum_js, raw=True)
 
-def update_nbtoc(line):
+
+def update_secnum(line):
     """download the latest version of the nbtoc extension from GitHub"""
-    download('nbtoc.py', True)
-    download('nbtoc.js', True)
-    download('nbtoc.html', True)
-    get_ipython().extension_manager.reload_extension("nbtoc")
+    download('secnum.py', True)
+    download('secnum.js', True)
+    get_ipython().extension_manager.reload_extension("secnum")
     
 def load_ipython_extension(ip):
-    ip.magics_manager.register_function(nbtoc)
-    ip.magics_manager.register_function(update_nbtoc)
+    ip.magics_manager.register_function(secnum)
+    ip.magics_manager.register_function(update_secnum)
 
