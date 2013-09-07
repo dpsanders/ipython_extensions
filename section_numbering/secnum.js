@@ -56,7 +56,7 @@ function number_sections(threshold) {
   
 }
 
-number_sections();
+// number_sections();
 
 // $([IPython.events]).on('create.Cell', number_sections);
 
