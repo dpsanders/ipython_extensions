@@ -1,4 +1,4 @@
-console.log("Section numbering...")
+console.log("Section numbering...");
 
 function number_sections(threshold) {
 
@@ -28,7 +28,7 @@ function number_sections(threshold) {
         
         console.log("h1_html: " + h1_html);
 
-        pattern = /^[0-9]+./;  // section number at start of string
+        pattern = /^[0-9]+\. /;  // section number at start of string
         var result = pattern.exec(h1_html);
         
         h1_html = h1_html.replace(result, "");
@@ -45,7 +45,8 @@ function number_sections(threshold) {
         var h2_element = cell.element.find('h2');
         var h2_html = h2_element.html();
         
-        pattern = /^[0-9]+.[0-9]+./;  // subsection number at start of string
+        // pattern = /^[0-9]+\.[0-9]+\./;  // subsection number at start of string
+        pattern = /^[0-9]+\.[0-9]+\. /
         var result = pattern.exec(h2_html);
        
         h2_html = h2_html.replace(result, "");
@@ -58,4 +59,8 @@ function number_sections(threshold) {
 }
 
 
-number_sections();
+
+$([IPython.events]).on('create.Cell', number_sections);
+
+$([IPython.events]).on('selected_cell_type_changed.Notebook', number_sections);
+
