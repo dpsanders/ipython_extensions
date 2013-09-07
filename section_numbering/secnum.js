@@ -27,10 +27,8 @@ function number_sections(threshold) {
         
         console.log("h1_html: " + h1_html);
 
-        var pattern = /^[0-9]+\./;  
-        // section number at start of string
-        
-        var result = pattern.exec(h1_html);
+        var pattern = /^[0-9]+\./;   // section number at start of string
+        var result = h1_html.match(pattern);
         
         h1_html = h1_html.replace(result, "");
         h1_element.html(h1_number + ". " + h1_html);
@@ -47,7 +45,7 @@ function number_sections(threshold) {
         var h2_html = h2_element.html();
         
         var pattern = /^[0-9]+\.[0-9]+\./;
-        var result = pattern.exec(h2_html);
+        var result = h2_html.match(pattern);
        
         h2_html = h2_html.replace(result, "");
         h2_element.html(h1_number + "." + h2_number + ". " + h2_html);
