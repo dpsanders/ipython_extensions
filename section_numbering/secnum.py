@@ -1,11 +1,24 @@
-"""IPython Notebook magic for numbering sections
+"""
+IPython Notebook magic command for automatically numbering sections of a notebook "interactively"
 
-%load_ext secnum
-%secnum
+Use:
+    %install_ext https://raw.github.com/dpsanders/ipython_extensions/master/section_numbering/secnum.py
 
-to have automatic section numbering
+once to install, and then
 
-Based on MinRK's nbtoc magic
+    %load_ext secnum
+    %secnum
+
+to get automatic section numbering, which is updated when any cell changes type.
+(This could, of course, be more efficient.)
+
+This is based, completely and shamelessly, on MinRK's `nbtoc` magic
+<https://github.com/minrk/ipython_extensions>
+
+Thanks also to:
+- Clayton Davis, for a great explanation of HTML, CSS and JavaScript
+- Brian Granger, for a crucial hint about extracting a JQuery object from a notebook cell object
+- Fernando Pérez, for an inspiring talk at SciPy 2013 (and, of course, for creating IPython)
 
 """
 
