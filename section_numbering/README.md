@@ -18,8 +18,12 @@ to get automatic section numbering, which is updated when any cell changes type.
 
 
 Please send me corrections, comments, and code improvements!
-There are surely ways to make this more efficient, add options etc. 
-In particular, there should be an option to add names for the different section types.
+There are surely ways to make this more efficient, add options, etc. 
+
+In particular, there should be an option to add names for the different section types,
+and for numbering more levels. 
+(This can be done either by copying and pasting, or in a more clever way by
+somebody with more JavaScript experience...)
 
 
 ## Acknowledgements:
