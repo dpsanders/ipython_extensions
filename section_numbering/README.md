@@ -6,6 +6,7 @@ sections of a notebook "interactively".
 Currently, headings of levels 1 and 2 are numbered.
 
 Use:
+
     %install_ext https://raw.github.com/dpsanders/ipython_extensions/master/section_numbering/secnum.py
 
 once to install, and then
