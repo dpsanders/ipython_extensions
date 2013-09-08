@@ -24,7 +24,7 @@ In particular, there should be an option to add names for the different section 
 
 ## Acknowledgements:
 
-This is based, completely and shamelessly, on MinRK's `nbtoc` magic
+This is based, completely and shamelessly, on MinRK's `nbtoc` magic:
 <https://github.com/minrk/ipython_extensions>
 
 Thanks also to:
