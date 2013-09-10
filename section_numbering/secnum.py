@@ -18,7 +18,7 @@ This is based, completely and shamelessly, on MinRK's `nbtoc` magic
 Thanks also to:
 - Clayton Davis, for a great explanation of HTML, CSS and JavaScript
 - Brian Granger, for a crucial hint about extracting a JQuery object from a notebook cell object
-- Fernando Pérez, for an inspiring talk at SciPy 2013 (and, of course, for creating IPython)
+- Fernando Perez, for an inspiring talk at SciPy 2013 (and, of course, for creating IPython)
 
 """
 
