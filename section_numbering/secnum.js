@@ -14,15 +14,13 @@ function number_sections(threshold) {
   for (var i=0; i < cells.length; i++) {
 
     var cell = cells[i];
-    if (cell.cell_type !== 'heading') continue;
+    if (cell.cell_type !== 'markdown') continue;
     
-    var level = cell.level;
-    if (level > threshold) continue;
-    
-    if (level === 1) {
+    var h1_element = cell.element.find('h1');
+    if (h1_element.length !== 0) {
         
         h1_number ++;
-        var h1_element = cell.element.find('h1');
+        
         var h1_html = h1_element.html();
         
         console.log("h1_html: " + h1_html);
@@ -41,11 +39,11 @@ function number_sections(threshold) {
         
     }
     
-    if (level === 2) {
+    var h2_element = cell.element.find('h2');
+    if (h2_element.length !== 0) {
     
         h2_number ++;
         
-        var h2_element = cell.element.find('h2');
         var h2_html = h2_element.html();
 
         console.log("h2_html: " + h2_html);
